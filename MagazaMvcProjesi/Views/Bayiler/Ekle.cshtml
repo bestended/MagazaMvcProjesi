@@ -1,0 +1,141 @@
+﻿@model MagazaMvcProjesi.Models.Dealer
+@{
+    ViewBag.Title = "Ekle";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+
+
+<div style="margin-left:150px;">
+    <h2>Dealer Adding Screen</h2>
+</div>
+<br />
+
+@using (Html.BeginForm())
+{
+    <div style="margin-left:150px;">
+        <div class="form-horizontal">
+
+            @Html.LabelFor(i => i.dealerName)
+            <div class="col-md-4 mt-2">
+                @Html.TextBoxFor(i => i.dealerName, new { @class = "form-control" })
+            </div>
+        </div>
+
+
+
+        <div class="form-horizontal mt-3">
+
+            @Html.LabelFor(i => i.dealerTelephone)
+            <div class="col-md-4 mt-2">
+                @Html.TextBoxFor(i => i.dealerTelephone, new { @class = "form-control" })
+            </div>
+        </div>
+
+
+        <div class="form-horizontal mt-3">
+
+            @Html.LabelFor(i => i.dealerMail)
+            <div class="col-md-4 mt-2">
+                @Html.TextBoxFor(i => i.dealerMail, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-horizontal mt-3">
+
+            @Html.LabelFor(i => i.dealerCountry)
+            <div class="col-md-4 mt-2">
+                @Html.TextBoxFor(i => i.dealerCountry, new { @class = "form-control" })
+            </div>
+        </div>
+
+
+
+        <div class="form-horizontal mt-3">
+
+            @Html.LabelFor(i => i.dealerCity)
+            <div class="col-md-4 mt-2">
+                @Html.TextBoxFor(i => i.dealerCity, new { @class = "form-control" })
+            </div>
+        </div>
+
+
+
+
+        <div class="form-group mt-3">
+            <input type="submit" value="ADD" class="btn btn-primary" />
+        </div>
+    </div>
+}
+
+
+
+
+
+<section id="services" class="services">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>Bayilerimiz</h2>
+
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon-box">
+                    <div><img src="~/bayiImg/de1.png" /></div>
+
+                    <h4 style="margin-top:20px;">İstanbul Şubesi</h4>
+                    <p>Kadıköy Bayisi</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+                <div class="icon-box">
+                    <div style="width:300px; height:220px;"><img src="~/bayiImg/d3.png" style="width:260px; height:260px;" /></div>
+
+                    <h4 style="margin-top:60px;">Ankara Şubesi</h4>
+                    <p>Kızılay Bayisi</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
+                <div class="icon-box">
+                    <div style="width:360px; height:220px;"><img src="~/bayiImg/dec8.png" style="width:260px; height:260px;" /></div>
+
+                    <h4 style="margin-top:60px;">Eskişehir Şubesi</h4>
+                    <p>Odunpazarı Bayisi</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon-box">
+                    <div><img src="~/bayiImg/dec6.png" /></div>
+
+                    <h4 style="margin-top:20px;">Kocaeli Şubesi</h4>
+                    <p>İzmit Bayisi</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="200">
+                <div class="icon-box">
+                    <div style="width:300px; height:220px;"><img src="~/bayiImg/dec8.png" style="width:260px; height:260px;" /></div>
+
+                    <h4 style="margin-top:60px;">Bursa Şubesi</h4>
+                    <p style="margin-top:5px;">Karacabey Bayisi</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="300">
+                <div class="icon-box">
+                    <div style="width:360px; height:263px;"><img src="~/bayiImg/dec3.png" style="width:300px; height:260px;" /></div>
+
+                    <h4 style="margin-top:20px;">İzmir Şubesi</h4>
+                    <p>Bayraklı Bayisi</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section><!-- End Services Section -->

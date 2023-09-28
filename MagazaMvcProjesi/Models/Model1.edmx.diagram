@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ee44df3398314b7695d9e85ad179c33f" Name="Diagram1">
+        <EntityTypeShape EntityType="MagazaMvcProjemModel.Customer" Width="1.5" PointX="0.75" PointY="3" />
+        <EntityTypeShape EntityType="MagazaMvcProjemModel.Dealer" Width="1.5" PointX="0.75" PointY="7.125" />
+        <EntityTypeShape EntityType="MagazaMvcProjemModel.Laptop" Width="1.5" PointX="3" PointY="11.125" />
+        <EntityTypeShape EntityType="MagazaMvcProjemModel.Refrigator" Width="1.5" PointX="6" PointY="7.125" />
+        <EntityTypeShape EntityType="MagazaMvcProjemModel.sysdiagram" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MagazaMvcProjemModel.Television" Width="1.5" PointX="3" PointY="7.125" />
+        <EntityTypeShape EntityType="MagazaMvcProjemModel.WashingMachine" Width="1.5" PointX="3" PointY="3.125" />
+        <AssociationConnector Association="MagazaMvcProjemModel.FK_Laptop_Customer" />
+        <AssociationConnector Association="MagazaMvcProjemModel.FK_Refrigator_Customer" />
+        <AssociationConnector Association="MagazaMvcProjemModel.FK_Television_Customer" />
+        <AssociationConnector Association="MagazaMvcProjemModel.FK_WashingMachine_Customer" />
+        <AssociationConnector Association="MagazaMvcProjemModel.FK_Laptop_Dealer" />
+        <AssociationConnector Association="MagazaMvcProjemModel.FK_Refrigator_Dealer" />
+        <AssociationConnector Association="MagazaMvcProjemModel.FK_Television_Dealer" />
+        <AssociationConnector Association="MagazaMvcProjemModel.FK_WashingMachine_Dealer" />
+        <EntityTypeShape EntityType="MagazaMvcProjemModel.Users" Width="1.5" PointX="5.375" PointY="3.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

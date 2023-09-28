@@ -1,0 +1,177 @@
+﻿@model MagazaMvcProjesi.Models.Television
+@{
+    ViewBag.Title = "Güncelle";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<div style="margin-left:150px;">
+    <h2>Television Edit Screen</h2>
+</div>
+<br />
+
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(a => a.tvId)
+    <div style="margin-left:150px;">
+        <div class="form-horizontal">
+
+            @Html.LabelFor(i => i.resolution)
+            <div class="col-md-4 mt-2">
+                @Html.TextBoxFor(i => i.resolution, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-horizontal mt-3">
+
+            @Html.LabelFor(i => i.screenSize)
+            <div class="col-md-4 mt-2">
+                @Html.TextBoxFor(i => i.screenSize, new { @class = "form-control" })
+            </div>
+        </div>
+
+
+        <div class="radio mt-3">
+
+            <label>  Android System</label>
+            <br />
+            <label>
+                @Html.RadioButtonFor(x => x.androidSystem, true) var
+
+            </label>
+            <label>
+                @Html.RadioButtonFor(x => x.androidSystem, false) yok
+
+            </label>
+        </div>
+
+
+        <div class="form-horizontal mt-3">
+
+            @Html.LabelFor(i => i.energyClass)
+            <div class="col-md-4 mt-2">
+                @Html.TextBoxFor(i => i.energyClass, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-horizontal mt-3">
+
+            @Html.LabelFor(i => i.color)
+            <div class="col-md-4 mt-2">
+                @Html.TextBoxFor(i => i.color, new { @class = "form-control" })
+            </div>
+        </div>
+
+
+        <div class="form-horizontal mt-3">
+
+            @Html.LabelFor(i => i.tvPrice)
+            <div class="col-md-4 mt-2">
+                @Html.TextBoxFor(i => i.tvPrice, new { @class = "form-control" })
+            </div>
+        </div>
+
+
+
+        <div class="form-group mt-3">
+
+            @Html.LabelFor(i => i.dealerId, "dealerId")
+
+
+            <div class="row-cols-sm-3 mt-2">
+                @Html.DropDownListFor(x => x.dealerId, (List<SelectListItem>)ViewBag.veri)
+            </div>
+
+        </div>
+
+        <div class="form-group mt-3">
+
+            @Html.LabelFor(i => i.customerId, "customerId")
+
+
+            <div class="row-cols-sm-3 mt-2">
+                @Html.DropDownListFor(x => x.customerId, (List<SelectListItem>)ViewBag.data)
+            </div>
+
+        </div>
+
+
+
+        <div class="form-group mt-3">
+            <input type="submit" value="EDIT" class="btn btn-warning" />
+        </div>
+    </div>
+}
+
+
+
+
+<section id="services" class="services">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>ELEKTRONİK EŞYALAR</h2>
+            <p>Televizyonlar</p>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon-box">
+                    <div><img src="~/TvImg/tv1.png" /></div>
+
+                    <h4>15.000</h4>
+                    <p>4K OLED TV</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+                <div class="icon-box">
+                    <div><img src="~/TvImg/tv2.png" /></div>
+
+
+                    <h4>17.000 TL</h4>
+                    <p>GOOGLE TV ANDROID</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
+                <div class="icon-box">
+                    <div> <img src="~/TvImg/tv3.png" /></div>
+
+
+                    <h4>15.000 TL</h4>
+                    <p>IMPERIUM TV 360K</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon-box">
+                    <div><img src="~/TvImg/tv4.png" /></div>
+
+                    <h4>12.000 TL</h4>
+                    <p>4K UHD TV</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="200">
+                <div class="icon-box">
+                    <div><img src="~/TvImg/tv5.png" /></div>
+
+                    <h4>18.000 TL</h4>
+                    <p>SMART TV</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="300">
+                <div class="icon-box">
+                    <div><img src="~/TvImg/tv6.png" /></div>
+
+                    <h4>15.000 TL</h4>
+                    <p>FULL HD TV</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section><!-- End Services Section -->

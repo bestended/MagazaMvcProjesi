@@ -1,0 +1,161 @@
+﻿@model IEnumerable<MagazaMvcProjesi.Models.Refrigator>
+@{
+    ViewBag.Title = "Liste";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<div class="form" style="margin-left:500px;">
+    <div style="width:500px; margin-bottom:10px;">
+        @Html.ActionLink("Buzdolabı Ekleme", "Ekle", null, new { @class = "btn btn-primary" })
+    </div>
+
+    @using (Html.BeginForm("Liste", "Buzdolabi"))
+    {
+        <div style="margin-bottom: 5px; margin-top: 20px;">
+            @Html.RadioButton("searchBy", "refColor", true) <text>Dolap Rengi</text>
+        </div>
+        <div style="margin-bottom: 1px; margin-top:10px;">
+            @Html.RadioButton("searchBy", "energyClass") <text>Enerji Sınıfı</text>
+        </div>
+        <br />
+        <div style="margin-bottom: 10px; width:180px;">
+            @Html.TextBox("search") 
+        </div>
+        <div>
+            <input type="submit" value="Arama" style="width:180px; margin-bottom:10px;"/>
+        </div>
+
+
+    }
+
+</div>
+
+
+<table class="table">
+    <tr>
+        <th>Buzdolabı Rengi</th>
+        <th>Dondurucu Yeri</th>
+        <th>Ses Seviyesi</th>
+        <th>Enerji Sınıfı</th>
+        <th>Fiyatı</th>
+        <th>Bayi No</th>
+        <th>Müşteri No</th>
+
+    </tr>
+
+
+
+    @foreach (var item in Model)
+    {
+
+        <tr>
+            <td>@item.refColor</td>
+
+            <td>
+                @if (item.freezerPlace == true)
+                {
+                    <span>Var  </span>
+                }
+
+                else
+                {
+                    <span>Yok  </span>
+                }
+
+            </td>
+            <td>@item.soundLevel</td>
+            <td>@item.energyClass</td>
+            <td>@item.refPrice</td>
+            <td>@item.dealerId</td>
+            <td>@item.customerId</td>
+
+            <td>
+                @Html.ActionLink("Güncelle", "Güncelle", new { id = item.refId }, new { @class = "btn btn-warning" }) |
+                @Html.ActionLink("Sil", "Sil", new { id = item.refId }, new { @class = "btn btn-danger" })
+            </td>
+
+
+        </tr>
+
+
+
+
+    }
+
+
+
+</table>
+
+
+
+
+
+
+
+<section id="services" class="services">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>Beyaz Eşyalar</h2>
+            <p>Buzdolabı</p>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon-box">
+                    <div><img src="~/BuzdolabiImg/d1.png" /></div>
+
+                    <h4>7.000 TL</h4>
+                    <p>260316MB No Frost</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+                <div class="icon-box">
+                    <div><img src="~/BuzdolabiImg/d2.png" /></div>
+
+                    <h4>12.000 TL</h4>
+                    <p>260316 No Frost</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
+                <div class="icon-box">
+                    <div><img src="~/BuzdolabiImg/d3.png" /></div>
+
+                    <h4>20.599</h4>
+                    <p>583630 EB No Frost</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon-box">
+                    <div><img src="~/BuzdolabiImg/d8.png" /></div>
+
+                    <h4>52.149 TL</h4>
+                    <p>391625 Gardrop Tipi Buzdolabı</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="200">
+                <div class="icon-box">
+                    <div><img src="~/BuzdolabiImg/d4.png" /></div>
+
+                    <h4>35.000</h4>
+                    <p>583629 EB No Frost</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="300">
+                <div class="icon-box">
+                    <div><img src="~/BuzdolabiImg/d5.png" /></div>
+
+                    <h4>13.519 TL</h4>
+                    <p>454270 MB Çift Kapılı</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section><!-- End Services Section -->

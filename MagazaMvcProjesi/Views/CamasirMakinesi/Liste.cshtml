@@ -1,0 +1,154 @@
+﻿@model IEnumerable<MagazaMvcProjesi.Models.WashingMachine>
+@{
+    ViewBag.Title = "Liste";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+
+
+<div class="form" style="margin-left:500px;">
+    <div style="width:500px; margin-bottom:10px;">
+        @Html.ActionLink("Çamaşır Makinesi Ekleme", "Ekle", null, new { @class = "btn btn-primary" })
+    </div>
+
+    @using (Html.BeginForm("Liste", "CamasirMakinesi"))
+    {
+        <div style="margin-bottom: 5px; margin-top: 20px;">
+            @Html.RadioButton("searchBy", "machineColor", true) <text>Makine rengi</text>
+        </div>
+        <div style="margin-bottom: 1px; margin-top:10px;">
+            @Html.RadioButton("searchBy", "energiesClass") <text>Enerji Sınıfı</text>
+        </div>
+        <br />
+        <div style="margin-bottom: 10px; width:180px;">
+            @Html.TextBox("search")
+        </div>
+        <div>
+            <input type="submit" value="Arama" style="width:180px; margin-bottom:10px;" />
+        </div>
+
+
+    }
+
+</div>
+
+
+
+
+
+<table class="table">
+    <tr>
+        <th>Kapasite</th>
+        <th>Devir Sayısı</th>
+        <th>Makine Rengi</th>
+        <th>Enerji Sınıfı</th>
+        <th>Makine Fiyatı</th>
+        <th>Bayi No</th>
+        <th>Müşteri No</th>
+
+    </tr>
+
+
+
+    @foreach (var item in Model)
+    {
+
+        <tr>
+            <td>@item.capacity</td>
+            <td>@item.spinCycle</td>
+            <td>@item.machineColor</td>
+            <td>@item.energiesClass</td>
+            <td>@item.washPrice</td>
+            <td>@item.dealerId</td>
+            <td>@item.customerId</td>
+
+            <td>
+                @Html.ActionLink("Güncelle", "Güncelle", new { id = item.washId }, new { @class = "btn btn-warning" }) |
+                @Html.ActionLink("Sil", "Sil", new { id = item.washId }, new { @class = "btn btn-danger" })
+            </td>
+
+
+        </tr>
+
+
+
+
+    }
+
+
+
+</table>
+
+
+
+
+
+
+
+<section id="services" class="services">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>Beyaz Eşyalar</h2>
+            <p>Çamaşır Makineleri</p>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon-box">
+                    <div><img src="~/camasirImg/c1.png" alt="Alternate Text" /></div>
+
+                    <h4><a href="#">7100M</a></h4>
+                    <h3>15.000 TL</h3>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+                <div class="icon-box">
+                    <div> <img src="~/camasirImg/c2.png" /></div>
+
+                    <h4><a href="#">9100M</a></h4>
+                    <h3>22.000 TL</h3>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
+                <div class="icon-box">
+                    <div> <img src="~/camasirImg/c3.png" /></div>
+
+                    <h4><a href="">9124PM</a></h4>
+                    <h3>25.000 TL</h3>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon-box">
+                    <div><img src="~/camasirImg/c4.png" /></div>
+
+                    <h4><a href="">9102PMG</a></h4>
+                    <h3>35.000 TL</h3>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="200">
+                <div class="icon-box">
+                    <div><img src="~/camasirImg/c5.png" /></div>
+
+                    <h4><a href="">10121PMB</a></h4>
+                    <h3>12.000 TL</h3>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="300">
+                <div class="icon-box">
+                    <div><img src="~/camasirImg/c6.png" /></div>
+
+                    <h4><a href="">8101PMB</a></h4>
+                    <h3>18.000 TL</h3>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section><!-- End Services Section -->

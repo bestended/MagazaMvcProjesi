@@ -1,0 +1,629 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MagazaMvcProjemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="customerId" />
+          </Key>
+          <Property Name="customerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Lastname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Telephone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="purchaseDate" Type="smalldatetime" />
+          <Property Name="gender" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Dealer">
+          <Key>
+            <PropertyRef Name="dealerId" />
+          </Key>
+          <Property Name="dealerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dealerName" Type="nvarchar" MaxLength="50" />
+          <Property Name="dealerTelephone" Type="nvarchar" MaxLength="50" />
+          <Property Name="dealerMail" Type="nvarchar" MaxLength="50" />
+          <Property Name="dealerCountry" Type="nvarchar" MaxLength="50" />
+          <Property Name="dealerCity" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Laptop">
+          <Key>
+            <PropertyRef Name="laptopId" />
+          </Key>
+          <Property Name="laptopId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="color" Type="nvarchar" MaxLength="50" />
+          <Property Name="screenSize" Type="int" />
+          <Property Name="operatingSystem" Type="nvarchar" MaxLength="50" />
+          <Property Name="bluetooth" Type="bit" Nullable="false" />
+          <Property Name="laptopPrice" Type="money" Nullable="false" />
+          <Property Name="dealerId" Type="int" Nullable="false" />
+          <Property Name="customerId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Refrigator">
+          <Key>
+            <PropertyRef Name="refId" />
+          </Key>
+          <Property Name="refId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="refColor" Type="nvarchar" MaxLength="50" />
+          <Property Name="freezerPlace" Type="bit" Nullable="false" />
+          <Property Name="soundLevel" Type="nvarchar" MaxLength="50" />
+          <Property Name="energyClass" Type="nvarchar" MaxLength="50" />
+          <Property Name="refPrice" Type="money" Nullable="false" />
+          <Property Name="dealerId" Type="int" Nullable="false" />
+          <Property Name="customerId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Television">
+          <Key>
+            <PropertyRef Name="tvId" />
+          </Key>
+          <Property Name="tvId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="resolution" Type="nvarchar" MaxLength="50" />
+          <Property Name="screenSize" Type="int" />
+          <Property Name="androidSystem" Type="bit" Nullable="false" />
+          <Property Name="energyClass" Type="nvarchar" MaxLength="50" />
+          <Property Name="color" Type="nvarchar" MaxLength="50" />
+          <Property Name="tvPrice" Type="money" Nullable="false" />
+          <Property Name="dealerId" Type="int" Nullable="false" />
+          <Property Name="customerId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Userses">
+          <Key>
+            <PropertyRef Name="kullaniciNo" />
+          </Key>
+          <Property Name="kullaniciNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="kullaniciAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="sifre" Type="nvarchar" MaxLength="50" />
+          <Property Name="role" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="WashingMachine">
+          <Key>
+            <PropertyRef Name="washId" />
+          </Key>
+          <Property Name="washId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="capacity" Type="nvarchar" MaxLength="50" />
+          <Property Name="spinCycle" Type="nvarchar" MaxLength="50" />
+          <Property Name="machineColor" Type="nvarchar" MaxLength="50" />
+          <Property Name="energiesClass" Type="nvarchar" MaxLength="50" />
+          <Property Name="washPrice" Type="money" Nullable="false" />
+          <Property Name="dealerId" Type="int" Nullable="false" />
+          <Property Name="customerId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Laptop_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Laptop" Type="Self.Laptop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="customerId" />
+            </Principal>
+            <Dependent Role="Laptop">
+              <PropertyRef Name="customerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Laptop_Dealer">
+          <End Role="Dealer" Type="Self.Dealer" Multiplicity="1" />
+          <End Role="Laptop" Type="Self.Laptop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dealer">
+              <PropertyRef Name="dealerId" />
+            </Principal>
+            <Dependent Role="Laptop">
+              <PropertyRef Name="dealerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Refrigator_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Refrigator" Type="Self.Refrigator" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="customerId" />
+            </Principal>
+            <Dependent Role="Refrigator">
+              <PropertyRef Name="customerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Refrigator_Dealer">
+          <End Role="Dealer" Type="Self.Dealer" Multiplicity="1" />
+          <End Role="Refrigator" Type="Self.Refrigator" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dealer">
+              <PropertyRef Name="dealerId" />
+            </Principal>
+            <Dependent Role="Refrigator">
+              <PropertyRef Name="dealerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Television_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Television" Type="Self.Television" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="customerId" />
+            </Principal>
+            <Dependent Role="Television">
+              <PropertyRef Name="customerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Television_Dealer">
+          <End Role="Dealer" Type="Self.Dealer" Multiplicity="1" />
+          <End Role="Television" Type="Self.Television" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dealer">
+              <PropertyRef Name="dealerId" />
+            </Principal>
+            <Dependent Role="Television">
+              <PropertyRef Name="dealerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WashingMachine_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="WashingMachine" Type="Self.WashingMachine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="customerId" />
+            </Principal>
+            <Dependent Role="WashingMachine">
+              <PropertyRef Name="customerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WashingMachine_Dealer">
+          <End Role="Dealer" Type="Self.Dealer" Multiplicity="1" />
+          <End Role="WashingMachine" Type="Self.WashingMachine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dealer">
+              <PropertyRef Name="dealerId" />
+            </Principal>
+            <Dependent Role="WashingMachine">
+              <PropertyRef Name="dealerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MagazaMvcProjemModelStoreContainer">
+          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dealer" EntityType="Self.Dealer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Laptop" EntityType="Self.Laptop" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Refrigator" EntityType="Self.Refrigator" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Television" EntityType="Self.Television" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Userses" EntityType="Self.Userses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WashingMachine" EntityType="Self.WashingMachine" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Laptop_Customer" Association="Self.FK_Laptop_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Laptop" EntitySet="Laptop" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Laptop_Dealer" Association="Self.FK_Laptop_Dealer">
+            <End Role="Dealer" EntitySet="Dealer" />
+            <End Role="Laptop" EntitySet="Laptop" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Refrigator_Customer" Association="Self.FK_Refrigator_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Refrigator" EntitySet="Refrigator" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Refrigator_Dealer" Association="Self.FK_Refrigator_Dealer">
+            <End Role="Dealer" EntitySet="Dealer" />
+            <End Role="Refrigator" EntitySet="Refrigator" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Television_Customer" Association="Self.FK_Television_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Television" EntitySet="Television" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Television_Dealer" Association="Self.FK_Television_Dealer">
+            <End Role="Dealer" EntitySet="Dealer" />
+            <End Role="Television" EntitySet="Television" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WashingMachine_Customer" Association="Self.FK_WashingMachine_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="WashingMachine" EntitySet="WashingMachine" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WashingMachine_Dealer" Association="Self.FK_WashingMachine_Dealer">
+            <End Role="Dealer" EntitySet="Dealer" />
+            <End Role="WashingMachine" EntitySet="WashingMachine" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MagazaMvcProjemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="MagazaMvcProjemEntities" annotation:LazyLoadingEnabled="false">
+          <EntitySet Name="Customers" EntityType="MagazaMvcProjemModel.Customer" />
+          <EntitySet Name="Dealers" EntityType="MagazaMvcProjemModel.Dealer" />
+          <EntitySet Name="Laptops" EntityType="MagazaMvcProjemModel.Laptop" />
+          <EntitySet Name="Refrigators" EntityType="MagazaMvcProjemModel.Refrigator" />
+          <EntitySet Name="sysdiagrams" EntityType="MagazaMvcProjemModel.sysdiagram" />
+          <EntitySet Name="Televisions" EntityType="MagazaMvcProjemModel.Television" />
+          <EntitySet Name="WashingMachines" EntityType="MagazaMvcProjemModel.WashingMachine" />
+          <AssociationSet Name="FK_Laptop_Customer" Association="MagazaMvcProjemModel.FK_Laptop_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Laptop" EntitySet="Laptops" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Refrigator_Customer" Association="MagazaMvcProjemModel.FK_Refrigator_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Refrigator" EntitySet="Refrigators" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Television_Customer" Association="MagazaMvcProjemModel.FK_Television_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Television" EntitySet="Televisions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WashingMachine_Customer" Association="MagazaMvcProjemModel.FK_WashingMachine_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="WashingMachine" EntitySet="WashingMachines" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Laptop_Dealer" Association="MagazaMvcProjemModel.FK_Laptop_Dealer">
+            <End Role="Dealer" EntitySet="Dealers" />
+            <End Role="Laptop" EntitySet="Laptops" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Refrigator_Dealer" Association="MagazaMvcProjemModel.FK_Refrigator_Dealer">
+            <End Role="Dealer" EntitySet="Dealers" />
+            <End Role="Refrigator" EntitySet="Refrigators" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Television_Dealer" Association="MagazaMvcProjemModel.FK_Television_Dealer">
+            <End Role="Dealer" EntitySet="Dealers" />
+            <End Role="Television" EntitySet="Televisions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WashingMachine_Dealer" Association="MagazaMvcProjemModel.FK_WashingMachine_Dealer">
+            <End Role="Dealer" EntitySet="Dealers" />
+            <End Role="WashingMachine" EntitySet="WashingMachines" />
+          </AssociationSet>
+          <EntitySet Name="Userses" EntityType="MagazaMvcProjemModel.Users" />
+        </EntityContainer>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="customerId" />
+          </Key>
+          <Property Name="customerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Telephone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="purchaseDate" Type="DateTime" Precision="0" />
+          <Property Name="gender" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Laptops" Relationship="MagazaMvcProjemModel.FK_Laptop_Customer" FromRole="Customer" ToRole="Laptop" />
+          <NavigationProperty Name="Refrigators" Relationship="MagazaMvcProjemModel.FK_Refrigator_Customer" FromRole="Customer" ToRole="Refrigator" />
+          <NavigationProperty Name="Televisions" Relationship="MagazaMvcProjemModel.FK_Television_Customer" FromRole="Customer" ToRole="Television" />
+          <NavigationProperty Name="WashingMachines" Relationship="MagazaMvcProjemModel.FK_WashingMachine_Customer" FromRole="Customer" ToRole="WashingMachine" />
+        </EntityType>
+        <EntityType Name="Dealer">
+          <Key>
+            <PropertyRef Name="dealerId" />
+          </Key>
+          <Property Name="dealerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dealerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="dealerTelephone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="dealerMail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="dealerCountry" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="dealerCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Laptops" Relationship="MagazaMvcProjemModel.FK_Laptop_Dealer" FromRole="Dealer" ToRole="Laptop" />
+          <NavigationProperty Name="Refrigators" Relationship="MagazaMvcProjemModel.FK_Refrigator_Dealer" FromRole="Dealer" ToRole="Refrigator" />
+          <NavigationProperty Name="Televisions" Relationship="MagazaMvcProjemModel.FK_Television_Dealer" FromRole="Dealer" ToRole="Television" />
+          <NavigationProperty Name="WashingMachines" Relationship="MagazaMvcProjemModel.FK_WashingMachine_Dealer" FromRole="Dealer" ToRole="WashingMachine" />
+        </EntityType>
+        <EntityType Name="Laptop">
+          <Key>
+            <PropertyRef Name="laptopId" />
+          </Key>
+          <Property Name="laptopId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="color" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="screenSize" Type="Int32" />
+          <Property Name="operatingSystem" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="bluetooth" Type="Boolean" Nullable="false" />
+          <Property Name="laptopPrice" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="dealerId" Type="Int32" Nullable="false" />
+          <Property Name="customerId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Customer" Relationship="MagazaMvcProjemModel.FK_Laptop_Customer" FromRole="Laptop" ToRole="Customer" />
+          <NavigationProperty Name="Dealer" Relationship="MagazaMvcProjemModel.FK_Laptop_Dealer" FromRole="Laptop" ToRole="Dealer" />
+        </EntityType>
+        <EntityType Name="Refrigator">
+          <Key>
+            <PropertyRef Name="refId" />
+          </Key>
+          <Property Name="refId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="refColor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="freezerPlace" Type="Boolean" Nullable="false" />
+          <Property Name="soundLevel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="energyClass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="refPrice" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="dealerId" Type="Int32" Nullable="false" />
+          <Property Name="customerId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Customer" Relationship="MagazaMvcProjemModel.FK_Refrigator_Customer" FromRole="Refrigator" ToRole="Customer" />
+          <NavigationProperty Name="Dealer" Relationship="MagazaMvcProjemModel.FK_Refrigator_Dealer" FromRole="Refrigator" ToRole="Dealer" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Television">
+          <Key>
+            <PropertyRef Name="tvId" />
+          </Key>
+          <Property Name="tvId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="resolution" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="screenSize" Type="Int32" />
+          <Property Name="androidSystem" Type="Boolean" Nullable="false" />
+          <Property Name="energyClass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="color" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="tvPrice" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="dealerId" Type="Int32" Nullable="false" />
+          <Property Name="customerId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Customer" Relationship="MagazaMvcProjemModel.FK_Television_Customer" FromRole="Television" ToRole="Customer" />
+          <NavigationProperty Name="Dealer" Relationship="MagazaMvcProjemModel.FK_Television_Dealer" FromRole="Television" ToRole="Dealer" />
+        </EntityType>
+        <EntityType Name="WashingMachine">
+          <Key>
+            <PropertyRef Name="washId" />
+          </Key>
+          <Property Name="washId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="capacity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="spinCycle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="machineColor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="energiesClass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="washPrice" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="dealerId" Type="Int32" Nullable="false" />
+          <Property Name="customerId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Customer" Relationship="MagazaMvcProjemModel.FK_WashingMachine_Customer" FromRole="WashingMachine" ToRole="Customer" />
+          <NavigationProperty Name="Dealer" Relationship="MagazaMvcProjemModel.FK_WashingMachine_Dealer" FromRole="WashingMachine" ToRole="Dealer" />
+        </EntityType>
+        <Association Name="FK_Laptop_Customer">
+          <End Type="MagazaMvcProjemModel.Customer" Role="Customer" Multiplicity="1" />
+          <End Type="MagazaMvcProjemModel.Laptop" Role="Laptop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="customerId" />
+            </Principal>
+            <Dependent Role="Laptop">
+              <PropertyRef Name="customerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Refrigator_Customer">
+          <End Type="MagazaMvcProjemModel.Customer" Role="Customer" Multiplicity="1" />
+          <End Type="MagazaMvcProjemModel.Refrigator" Role="Refrigator" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="customerId" />
+            </Principal>
+            <Dependent Role="Refrigator">
+              <PropertyRef Name="customerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Television_Customer">
+          <End Type="MagazaMvcProjemModel.Customer" Role="Customer" Multiplicity="1" />
+          <End Type="MagazaMvcProjemModel.Television" Role="Television" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="customerId" />
+            </Principal>
+            <Dependent Role="Television">
+              <PropertyRef Name="customerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WashingMachine_Customer">
+          <End Type="MagazaMvcProjemModel.Customer" Role="Customer" Multiplicity="1" />
+          <End Type="MagazaMvcProjemModel.WashingMachine" Role="WashingMachine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="customerId" />
+            </Principal>
+            <Dependent Role="WashingMachine">
+              <PropertyRef Name="customerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Laptop_Dealer">
+          <End Type="MagazaMvcProjemModel.Dealer" Role="Dealer" Multiplicity="1" />
+          <End Type="MagazaMvcProjemModel.Laptop" Role="Laptop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dealer">
+              <PropertyRef Name="dealerId" />
+            </Principal>
+            <Dependent Role="Laptop">
+              <PropertyRef Name="dealerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Refrigator_Dealer">
+          <End Type="MagazaMvcProjemModel.Dealer" Role="Dealer" Multiplicity="1" />
+          <End Type="MagazaMvcProjemModel.Refrigator" Role="Refrigator" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dealer">
+              <PropertyRef Name="dealerId" />
+            </Principal>
+            <Dependent Role="Refrigator">
+              <PropertyRef Name="dealerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Television_Dealer">
+          <End Type="MagazaMvcProjemModel.Dealer" Role="Dealer" Multiplicity="1" />
+          <End Type="MagazaMvcProjemModel.Television" Role="Television" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dealer">
+              <PropertyRef Name="dealerId" />
+            </Principal>
+            <Dependent Role="Television">
+              <PropertyRef Name="dealerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WashingMachine_Dealer">
+          <End Type="MagazaMvcProjemModel.Dealer" Role="Dealer" Multiplicity="1" />
+          <End Type="MagazaMvcProjemModel.WashingMachine" Role="WashingMachine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dealer">
+              <PropertyRef Name="dealerId" />
+            </Principal>
+            <Dependent Role="WashingMachine">
+              <PropertyRef Name="dealerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="kullaniciNo" />
+          </Key>
+          <Property Name="kullaniciNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="kullaniciAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MagazaMvcProjemModelStoreContainer" CdmEntityContainer="MagazaMvcProjemEntities">
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="MagazaMvcProjemModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="purchaseDate" ColumnName="purchaseDate" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="customerId" ColumnName="customerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dealers">
+            <EntityTypeMapping TypeName="MagazaMvcProjemModel.Dealer">
+              <MappingFragment StoreEntitySet="Dealer">
+                <ScalarProperty Name="dealerCity" ColumnName="dealerCity" />
+                <ScalarProperty Name="dealerCountry" ColumnName="dealerCountry" />
+                <ScalarProperty Name="dealerMail" ColumnName="dealerMail" />
+                <ScalarProperty Name="dealerTelephone" ColumnName="dealerTelephone" />
+                <ScalarProperty Name="dealerName" ColumnName="dealerName" />
+                <ScalarProperty Name="dealerId" ColumnName="dealerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Laptops">
+            <EntityTypeMapping TypeName="MagazaMvcProjemModel.Laptop">
+              <MappingFragment StoreEntitySet="Laptop">
+                <ScalarProperty Name="customerId" ColumnName="customerId" />
+                <ScalarProperty Name="dealerId" ColumnName="dealerId" />
+                <ScalarProperty Name="laptopPrice" ColumnName="laptopPrice" />
+                <ScalarProperty Name="bluetooth" ColumnName="bluetooth" />
+                <ScalarProperty Name="operatingSystem" ColumnName="operatingSystem" />
+                <ScalarProperty Name="screenSize" ColumnName="screenSize" />
+                <ScalarProperty Name="color" ColumnName="color" />
+                <ScalarProperty Name="laptopId" ColumnName="laptopId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Refrigators">
+            <EntityTypeMapping TypeName="MagazaMvcProjemModel.Refrigator">
+              <MappingFragment StoreEntitySet="Refrigator">
+                <ScalarProperty Name="customerId" ColumnName="customerId" />
+                <ScalarProperty Name="dealerId" ColumnName="dealerId" />
+                <ScalarProperty Name="refPrice" ColumnName="refPrice" />
+                <ScalarProperty Name="energyClass" ColumnName="energyClass" />
+                <ScalarProperty Name="soundLevel" ColumnName="soundLevel" />
+                <ScalarProperty Name="freezerPlace" ColumnName="freezerPlace" />
+                <ScalarProperty Name="refColor" ColumnName="refColor" />
+                <ScalarProperty Name="refId" ColumnName="refId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="MagazaMvcProjemModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Televisions">
+            <EntityTypeMapping TypeName="MagazaMvcProjemModel.Television">
+              <MappingFragment StoreEntitySet="Television">
+                <ScalarProperty Name="customerId" ColumnName="customerId" />
+                <ScalarProperty Name="dealerId" ColumnName="dealerId" />
+                <ScalarProperty Name="tvPrice" ColumnName="tvPrice" />
+                <ScalarProperty Name="color" ColumnName="color" />
+                <ScalarProperty Name="energyClass" ColumnName="energyClass" />
+                <ScalarProperty Name="androidSystem" ColumnName="androidSystem" />
+                <ScalarProperty Name="screenSize" ColumnName="screenSize" />
+                <ScalarProperty Name="resolution" ColumnName="resolution" />
+                <ScalarProperty Name="tvId" ColumnName="tvId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WashingMachines">
+            <EntityTypeMapping TypeName="MagazaMvcProjemModel.WashingMachine">
+              <MappingFragment StoreEntitySet="WashingMachine">
+                <ScalarProperty Name="customerId" ColumnName="customerId" />
+                <ScalarProperty Name="dealerId" ColumnName="dealerId" />
+                <ScalarProperty Name="washPrice" ColumnName="washPrice" />
+                <ScalarProperty Name="energiesClass" ColumnName="energiesClass" />
+                <ScalarProperty Name="machineColor" ColumnName="machineColor" />
+                <ScalarProperty Name="spinCycle" ColumnName="spinCycle" />
+                <ScalarProperty Name="capacity" ColumnName="capacity" />
+                <ScalarProperty Name="washId" ColumnName="washId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Userses">
+            <EntityTypeMapping TypeName="MagazaMvcProjemModel.Users">
+              <MappingFragment StoreEntitySet="Userses">
+                <ScalarProperty Name="role" ColumnName="role" />
+                <ScalarProperty Name="sifre" ColumnName="sifre" />
+                <ScalarProperty Name="kullaniciAdi" ColumnName="kullaniciAdi" />
+                <ScalarProperty Name="kullaniciNo" ColumnName="kullaniciNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

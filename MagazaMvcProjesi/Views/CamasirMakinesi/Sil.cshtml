@@ -1,0 +1,126 @@
+﻿@model MagazaMvcProjesi.Models.WashingMachine
+
+@{
+    ViewBag.Title = "Sil";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<div style="margin-left:150px;">
+    <h2>Washing Machine Delete Screen</h2>
+</div>
+<br />
+
+
+
+<div>
+
+    <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(i => i.capacity)</dt>
+        <dd>>@Html.DisplayFor(i => i.capacity)</dd>
+    </dl>
+
+    <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(i => i.spinCycle)</dt>
+        <dd>>@Html.DisplayFor(i => i.spinCycle)</dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(i => i.machineColor)</dt>
+        <dd>>@Html.DisplayFor(i => i.machineColor)</dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(i => i.energiesClass)</dt>
+        <dd>>@Html.DisplayFor(i => i.energiesClass)</dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(i => i.washPrice)</dt>
+        <dd>>@Html.DisplayFor(i => i.washPrice)</dd>
+    </dl>
+
+    <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(i => i.dealerId)</dt>
+        <dd>>@Html.DisplayFor(i => i.dealerId)</dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(i => i.customerId)</dt>
+        <dd>>@Html.DisplayFor(i => i.customerId)</dd>
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            @Html.ActionLink("Back to List", "Liste")
+        </div>
+
+    }
+</div>
+
+<section id="services" class="services">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>Beyaz Eşyalar</h2>
+            <p>Çamaşır Makineleri</p>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon-box">
+                    <div><img src="~/camasirImg/c1.png" alt="Alternate Text" /></div>
+
+                    <h4><a href="#">7100M</a></h4>
+                    <h3>15.000 TL</h3>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+                <div class="icon-box">
+                    <div> <img src="~/camasirImg/c2.png" /></div>
+
+                    <h4><a href="#">9100M</a></h4>
+                    <h3>22.000 TL</h3>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
+                <div class="icon-box">
+                    <div> <img src="~/camasirImg/c3.png" /></div>
+
+                    <h4><a href="">9124PM</a></h4>
+                    <h3>25.000 TL</h3>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon-box">
+                    <div><img src="~/camasirImg/c4.png" /></div>
+
+                    <h4><a href="">9102PMG</a></h4>
+                    <h3>35.000 TL</h3>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="200">
+                <div class="icon-box">
+                    <div><img src="~/camasirImg/c5.png" /></div>
+
+                    <h4><a href="">10121PMB</a></h4>
+                    <h3>12.000 TL</h3>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="300">
+                <div class="icon-box">
+                    <div><img src="~/camasirImg/c6.png" /></div>
+
+                    <h4><a href="">8101PMB</a></h4>
+                    <h3>18.000 TL</h3>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section><!-- End Services Section -->

@@ -1,0 +1,164 @@
+﻿@model IEnumerable<MagazaMvcProjesi.Models.Laptop>
+@{
+    ViewBag.Title = "Liste";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+@*@Html.ActionLink("Laptop Ekleme", "Ekle", null, new { @class = "btn btn-primary" })*@
+
+<div class="form" style="margin-left:500px;">
+    <div style="width:500px; margin-bottom:10px;">
+        @Html.ActionLink("Laptop Ekleme", "Ekle", null, new { @class = "btn btn-primary" })
+    </div>
+
+    @using (Html.BeginForm("Liste", "Laptop"))
+    {
+        <div style="margin-bottom: 5px; margin-top: 20px;">
+            @Html.RadioButton("searchBy", "color", true) <text>Laptop rengi</text>
+        </div>
+        <div style="margin-bottom: 1px; margin-top:10px;">
+            @Html.RadioButton("searchBy", "operatingSystem") <text>İşletim sistemi</text>
+        </div>
+        <br />
+        <div style="margin-bottom: 10px; width:180px;">
+            @Html.TextBox("search")
+        </div>
+        <div>
+            <input type="submit" value="Arama" style="width:180px; margin-bottom:10px;" />
+        </div>
+
+
+    }
+
+</div>
+
+
+
+<table class="table">
+    <tr>
+        <th>Laptop Rengi</th>
+        <th>Ekran Boyutu</th>
+        <th>İşletim Sistemi</th>
+        <th>Bluetooth Durumu</th>
+        <th>Fiyatı</th>
+        <th>Bayi No</th>
+        <th>Müşteri No</th>
+
+    </tr>
+
+
+
+    @foreach (var item in Model)
+    {
+
+        <tr>
+            <td>@item.color</td>
+            <td>@item.screenSize</td>
+            <td>@item.operatingSystem</td>
+
+            <td>
+                @if (item.bluetooth == true)
+                {
+                    <span>Var  </span>
+                }
+
+                else
+                {
+                    <span>Yok  </span>
+                }
+
+            </td>
+            <td>@item.laptopPrice</td>
+            <td>@item.dealerId</td>
+            <td>@item.customerId</td>
+
+            <td>
+                @Html.ActionLink("Güncelle", "Güncelle", new { id = item.laptopId }, new { @class = "btn btn-warning" }) |
+                @Html.ActionLink("Sil", "Sil", new { id = item.laptopId }, new { @class = "btn btn-danger" })
+            </td>
+
+
+        </tr>
+
+
+
+
+    }
+
+
+
+</table>
+
+
+
+
+
+
+
+<section id="services" class="services">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>Elektronik Eşyalar</h2>
+            <p>Laptoplar</p>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon-box">
+                    <div><img src="~/laptopImg/l1.png" /></div>
+                    <h4>9.000 TL</h4>
+
+                    <p>HP I5-256 GB F4ES LAPTOP</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+                <div class="icon-box">
+                    <div><img src="~/laptopImg/l2.png" /></div>
+
+                    <h4>11.000 TL</h4>
+                    <p>HP İ7 512 GB-723Q1EA LAPTOP</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
+                <div class="icon-box">
+                    <div> <img src="~/laptopImg/l3.png" /></div>
+
+                    <h4>7.000 TL</h4>
+                    <p>HP RYZEN 256 GB 723QOEA LAPTOP</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon-box">
+                    <div><img src="~/laptopImg/l4.png" /></div>
+
+                    <h4>8.500 TL</h4>
+                    <p>Lenovo Gaming 15.6" 512 GB 82K101EKTX</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="200">
+                <div class="icon-box">
+                    <div><img src="~/laptopImg/l5.png" /></div>
+
+                    <h4>12.000 TL</h4>
+                    <p>Lenovo Gaming İ7 16 GB-1TB 82S900ESTX</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="300">
+                <div class="icon-box">
+                    <div><img src="~/laptopImg/l6.png" /></div>
+
+                    <h4>4.500 TL</h4>
+                    <p>Lenovo Gaming İ5-512 GB 82K10ELTX</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section><!-- End Services Section -->

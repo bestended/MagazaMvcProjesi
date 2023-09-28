@@ -1,0 +1,168 @@
+﻿@model MagazaMvcProjesi.Models.Refrigator
+@{
+    ViewBag.Title = "Güncelle";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<div style="margin-left:150px;">
+    <h2>Refrigator Edit Screen</h2>
+</div>
+<br />
+
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(a => a.refId)
+    <div style="margin-left:150px;">
+        <div class="form-horizontal">
+
+            @Html.LabelFor(i => i.refColor)
+            <div class="col-md-4 mt-2">
+                @Html.TextBoxFor(i => i.refColor, new { @class = "form-control" })
+            </div>
+        </div>
+
+
+        <div class="radio mt-3">
+
+            <label>  Freezer Place</label>
+            <br />
+            <label>
+                @Html.RadioButtonFor(x => x.freezerPlace, true) Üst
+
+            </label>
+            <label>
+                @Html.RadioButtonFor(x => x.freezerPlace, false) Alt
+
+            </label>
+        </div>
+
+
+        <div class="form-horizontal mt-3">
+
+            @Html.LabelFor(i => i.soundLevel)
+            <div class="col-md-4 mt-2">
+                @Html.TextBoxFor(i => i.soundLevel, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-horizontal mt-3">
+
+            @Html.LabelFor(i => i.energyClass)
+            <div class="col-md-4 mt-2">
+                @Html.TextBoxFor(i => i.energyClass, new { @class = "form-control" })
+            </div>
+        </div>
+
+
+        <div class="form-horizontal mt-3">
+
+            @Html.LabelFor(i => i.refPrice)
+            <div class="col-md-4 mt-2">
+                @Html.TextBoxFor(i => i.refPrice, new { @class = "form-control" })
+            </div>
+        </div>
+
+
+
+        <div class="form-group mt-3">
+
+            @Html.LabelFor(i => i.dealerId, "dealerId")
+
+
+            <div class="row-cols-sm-3 mt-2">
+                @Html.DropDownListFor(x => x.dealerId, (List<SelectListItem>)ViewBag.veri)
+            </div>
+
+        </div>
+
+        <div class="form-group mt-3">
+
+            @Html.LabelFor(i => i.customerId, "customerId")
+
+
+            <div class="row-cols-sm-3 mt-2">
+                @Html.DropDownListFor(x => x.customerId, (List<SelectListItem>)ViewBag.data)
+            </div>
+
+        </div>
+
+
+
+
+        <div class="form-group mt-3">
+            <input type="submit" value="EDIT" class="btn btn-warning" />
+        </div>
+    </div>
+}
+
+
+
+
+<section id="services" class="services">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>Beyaz Eşyalar</h2>
+            <p>Buzdolabı</p>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon-box">
+                    <div><img src="~/BuzdolabiImg/d1.png" /></div>
+
+                    <h4>7.000 TL</h4>
+                    <p>260316MB No Frost</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+                <div class="icon-box">
+                    <div><img src="~/BuzdolabiImg/d2.png" /></div>
+
+                    <h4>12.000 TL</h4>
+                    <p>260316 No Frost</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
+                <div class="icon-box">
+                    <div><img src="~/BuzdolabiImg/d3.png" /></div>
+
+                    <h4>20.599</h4>
+                    <p>583630 EB No Frost</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon-box">
+                    <div><img src="~/BuzdolabiImg/d8.png" /></div>
+
+                    <h4>52.149 TL</h4>
+                    <p>391625 Gardrop Tipi Buzdolabı</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="200">
+                <div class="icon-box">
+                    <div><img src="~/BuzdolabiImg/d4.png" /></div>
+
+                    <h4>35.000</h4>
+                    <p>583629 EB No Frost</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="300">
+                <div class="icon-box">
+                    <div><img src="~/BuzdolabiImg/d5.png" /></div>
+
+                    <h4>13.519 TL</h4>
+                    <p>454270 MB Çift Kapılı</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section><!-- End Services Section -->

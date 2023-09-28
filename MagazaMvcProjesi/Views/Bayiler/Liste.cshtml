@@ -1,0 +1,136 @@
+﻿@model IEnumerable<MagazaMvcProjesi.Models.Dealer>
+@{
+    ViewBag.Title = "Liste";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+@Html.ActionLink("Bayi Ekleme", "Ekle", null, new { @class = "btn btn-primary" })
+
+
+<h2>Aranacak bayi adını girin</h2>
+
+@using (Html.BeginForm("Liste", "Bayiler"))
+{
+
+    @Html.TextBox("x")
+
+    <input type="submit"  value="Arama" />
+
+}
+
+
+
+<table class="table">
+    <tr>
+        <th>Bayi Adı</th>
+        <th>Telefonu</th>
+        <th>Maili</th>
+        <th>Ülke</th>
+        <th>Şehir</th>
+
+
+    </tr>
+
+
+
+    @foreach (var item in Model)
+    {
+
+        <tr>
+            <td>@item.dealerName</td>
+            <td>@item.dealerTelephone</td>
+            <td>@item.dealerMail</td>
+            <td>@item.dealerCountry</td>
+            <td>@item.dealerCity</td>
+
+
+            <td>
+                @Html.ActionLink("Güncelle", "Güncelle", new { id = item.dealerId }, new { @class = "btn btn-warning" }) |
+                @Html.ActionLink("Sil", "Sil", new { id = item.dealerId }, new { @class = "btn btn-danger" })
+            </td>
+
+
+        </tr>
+
+
+
+
+    }
+
+
+
+</table>
+
+
+
+
+
+
+
+<section id="services" class="services">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>Bayilerimiz</h2>
+
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon-box">
+                    <div><img src="~/bayiImg/de1.png" /></div>
+
+                    <h4 style="margin-top:20px;">İstanbul Şubesi</h4>
+                    <p>Kadıköy Bayisi</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+                <div class="icon-box">
+                    <div style="width:300px; height:220px;"><img src="~/bayiImg/d3.png" style="width:260px; height:260px;" /></div>
+
+                    <h4 style="margin-top:60px;">Ankara Şubesi</h4>
+                    <p>Kızılay Bayisi</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
+                <div class="icon-box">
+                    <div style="width:360px; height:220px;"><img src="~/bayiImg/dec8.png" style="width:260px; height:260px;" /></div>
+
+                    <h4 style="margin-top:60px;">Eskişehir Şubesi</h4>
+                    <p>Odunpazarı Bayisi</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon-box">
+                    <div><img src="~/bayiImg/dec6.png" /></div>
+
+                    <h4 style="margin-top:20px;">Kocaeli Şubesi</h4>
+                    <p>İzmit Bayisi</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="200">
+                <div class="icon-box">
+                    <div style="width:300px; height:220px;"><img src="~/bayiImg/dec8.png" style="width:260px; height:260px;" /></div>
+
+                    <h4 style="margin-top:60px;">Bursa Şubesi</h4>
+                    <p style="margin-top:5px;">Karacabey Bayisi</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="300">
+                <div class="icon-box">
+                    <div style="width:360px; height:263px;"><img src="~/bayiImg/dec3.png" style="width:300px; height:260px;" /></div>
+
+                    <h4 style="margin-top:20px;">İzmir Şubesi</h4>
+                    <p>Bayraklı Bayisi</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section><!-- End Services Section -->

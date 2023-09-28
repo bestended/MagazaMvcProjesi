@@ -1,0 +1,63 @@
+﻿@model  MagazaMvcProjesi.Models.Users
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+   
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        body {
+            background-image: url("../arkaplan.png");
+            background-repeat:no-repeat;
+            background-position:center center;
+            background-attachment:fixed;
+            background-size:cover;
+
+        }
+
+        .container {
+            background-image: url("../resim.jpg");
+            background-repeat: no-repeat;
+            background-position: left;
+           
+           
+        }
+   
+
+
+    </style>
+</head>
+<body>
+   
+    <div class="container" style="margin-top: 150px; margin-left:500px; ">
+        <b style=" margin-left: 40px; margin-top: 10px; color: White; font-size: 25px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">  Kullanıcı Giriş Sayfası</b>
+        @using (Html.BeginForm("Login", "Security", FormMethod.Post))
+        {
+            <div style="margin-top:10px;  margin-left:20px; ">
+                @Html.LabelFor(i => i.kullaniciAdi, new { Style = "color:red; margin-left: 20px;  font-size:30px;" })
+                <div style="margin-top: 5px; width: 300px; margin-left: 20px;">
+                    @Html.TextBoxFor(i => i.kullaniciAdi, new { @class = "form-control", placeholder = "Lütfen kullanıcı adını giriniz..." })
+                </div>
+            </div>
+
+            <div style="margin-top: 20px; width: 300px; margin-left: 20px;">
+                @Html.LabelFor(i => i.sifre, new { Style = "color:red; font-size:30px; margin-left: 20px;" })
+                <div style="margin-top: 5px; margin-left: 25px; width:300px;">
+                    @Html.PasswordFor(i => i.sifre, new { @class = "form-control", placeholder = "Lütfen şifrenizi giriniz..." })
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-danger" style="margin-top: 20px; margin-bottom: 15px; width: 300px; margin-left: 45px;">Giriş Yap</button>
+        }
+
+
+    </div>
+</body>
+</html>

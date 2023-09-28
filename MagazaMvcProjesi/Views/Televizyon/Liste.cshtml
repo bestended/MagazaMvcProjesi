@@ -1,0 +1,170 @@
+﻿@model IEnumerable<MagazaMvcProjesi.Models.Television>
+@{
+    ViewBag.Title = "Liste";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+@*@Html.ActionLink("Televizyon Ekleme", "Ekle", null, new { @class = "btn btn-primary" })*@
+
+<div class="form" style="margin-left:500px;">
+    <div style="width:500px; margin-bottom:10px;">
+        @Html.ActionLink("Televizyon Ekleme", "Ekle", null, new { @class = "btn btn-primary" })
+    </div>
+
+    @using (Html.BeginForm("Liste", "Televizyon"))
+    {
+        <div style="margin-bottom: 5px; margin-top: 20px;">
+            @Html.RadioButton("searchBy", "energyClass", true) <text>Enerji Sınıfı</text>
+        </div>
+        <div style="margin-bottom: 1px; margin-top:10px;">
+            @Html.RadioButton("searchBy", "color") <text>Renk</text>
+        </div>
+        <br />
+        <div style="margin-bottom: 10px; width:180px;">
+            @Html.TextBox("search")
+        </div>
+        <div>
+            <input type="submit" value="Arama" style="width:180px; margin-bottom:10px;" />
+        </div>
+
+
+    }
+
+</div>
+
+
+
+
+
+<table class="table">
+    <tr>
+        <th>Çözünürlük</th>
+        <th>Ekran Boyutu</th>
+        <th>Android Sistem</th>
+        <th>Enerji Sınıfı</th>
+        <th>Renk</th>
+        <th>Fiyat</th>
+        <th>Bayi No</th>
+        <th>Müşteri No</th>
+
+    </tr>
+
+
+
+    @foreach (var item in Model)
+    {
+
+        <tr>
+            <td>@item.resolution</td>
+            <td>@item.screenSize</td>
+
+            <td>
+                @if (item.androidSystem == true)
+                {
+                    <span>Var  </span>
+                }
+
+                else
+                {
+                    <span>Yok  </span>
+                }
+
+            </td>
+            <td>@item.energyClass</td>
+            <td>@item.color</td>
+            <td>@item.tvPrice</td>
+            <td>@item.dealerId</td>
+            <td>@item.customerId</td>
+
+            <td>
+                @Html.ActionLink("Güncelle", "Güncelle", new { id = item.tvId }, new { @class = "btn btn-warning" }) |
+                @Html.ActionLink("Sil", "Sil", new { id = item.tvId }, new { @class = "btn btn-danger" })
+            </td>
+
+
+        </tr>
+
+
+
+
+    }
+
+
+
+</table>
+
+
+
+
+
+
+
+<section id="services" class="services">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>ELEKTRONİK EŞYALAR</h2>
+            <p>Televizyonlar</p>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon-box">
+                    <div><img src="~/TvImg/tv1.png" /></div>
+
+                    <h4>15.000</h4>
+                    <p>4K OLED TV</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+                <div class="icon-box">
+                    <div><img src="~/TvImg/tv2.png" /></div>
+
+
+                    <h4>17.000 TL</h4>
+                    <p>GOOGLE TV ANDROID</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
+                <div class="icon-box">
+                    <div> <img src="~/TvImg/tv3.png" /></div>
+
+
+                    <h4>15.000 TL</h4>
+                    <p>IMPERIUM TV 360K</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon-box">
+                    <div><img src="~/TvImg/tv4.png" /></div>
+
+                    <h4>12.000 TL</h4>
+                    <p>4K UHD TV</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="200">
+                <div class="icon-box">
+                    <div><img src="~/TvImg/tv5.png" /></div>
+
+                    <h4>18.000 TL</h4>
+                    <p>SMART TV</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="300">
+                <div class="icon-box">
+                    <div><img src="~/TvImg/tv6.png" /></div>
+
+                    <h4>15.000 TL</h4>
+                    <p>FULL HD TV</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section><!-- End Services Section -->

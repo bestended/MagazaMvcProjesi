@@ -1,0 +1,166 @@
+﻿@model MagazaMvcProjesi.Models.Laptop
+@{
+    ViewBag.Title = "Güncelle";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<div style="margin-left:150px;">
+    <h2>Laptop Edit Screen</h2>
+</div>
+<br />
+
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(a => a.laptopId)
+    <div style="margin-left:150px;">
+        <div class="form-horizontal">
+
+            @Html.LabelFor(i => i.color)
+            <div class="col-md-4 mt-2">
+                @Html.TextBoxFor(i => i.color, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-horizontal mt-3">
+
+            @Html.LabelFor(i => i.screenSize)
+            <div class="col-md-4 mt-2">
+                @Html.TextBoxFor(i => i.screenSize, new { @class = "form-control" })
+            </div>
+        </div>
+
+
+        <div class="form-horizontal mt-3">
+
+            @Html.LabelFor(i => i.operatingSystem)
+            <div class="col-md-4 mt-2">
+                @Html.TextBoxFor(i => i.operatingSystem, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="radio mt-3">
+
+            <label>  Bluetooth System</label>
+            <br />
+            <label>
+                @Html.RadioButtonFor(x => x.bluetooth, true) var
+
+            </label>
+            <label>
+                @Html.RadioButtonFor(x => x.bluetooth, false) yok
+
+            </label>
+        </div>
+
+
+        <div class="form-horizontal mt-3">
+
+            @Html.LabelFor(i => i.laptopPrice)
+            <div class="col-md-4 mt-2">
+                @Html.TextBoxFor(i => i.laptopPrice, new { @class = "form-control" })
+            </div>
+        </div>
+
+
+        <div class="form-group mt-3">
+
+            @Html.LabelFor(i => i.dealerId, "dealerId")
+
+
+            <div class="row-cols-sm-3 mt-2">
+                @Html.DropDownListFor(x => x.dealerId, (List<SelectListItem>)ViewBag.veri)
+            </div>
+
+        </div>
+
+        <div class="form-group mt-3">
+
+            @Html.LabelFor(i => i.customerId, "customerId")
+
+
+            <div class="row-cols-sm-3 mt-2">
+                @Html.DropDownListFor(x => x.customerId, (List<SelectListItem>)ViewBag.data)
+            </div>
+
+        </div>
+
+
+
+
+        <div class="form-group mt-3">
+            <input type="submit" value="EDIT" class="btn btn-warning" />
+        </div>
+    </div>
+}
+
+
+
+
+<section id="services" class="services">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>Elektronik Eşyalar</h2>
+            <p>Laptoplar</p>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon-box">
+                    <div><img src="~/laptopImg/l1.png" /></div>
+                    <h4>9.000 TL</h4>
+
+                    <p>HP I5-256 GB F4ES LAPTOP</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+                <div class="icon-box">
+                    <div><img src="~/laptopImg/l2.png" /></div>
+
+                    <h4>11.000 TL</h4>
+                    <p>HP İ7 512 GB-723Q1EA LAPTOP</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
+                <div class="icon-box">
+                    <div> <img src="~/laptopImg/l3.png" /></div>
+
+                    <h4>7.000 TL</h4>
+                    <p>HP RYZEN 256 GB 723QOEA LAPTOP</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon-box">
+                    <div><img src="~/laptopImg/l4.png" /></div>
+
+                    <h4>8.500 TL</h4>
+                    <p>Lenovo Gaming 15.6" 512 GB 82K101EKTX</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="200">
+                <div class="icon-box">
+                    <div><img src="~/laptopImg/l5.png" /></div>
+
+                    <h4>12.000 TL</h4>
+                    <p>Lenovo Gaming İ7 16 GB-1TB 82S900ESTX</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="300">
+                <div class="icon-box">
+                    <div><img src="~/laptopImg/l6.png" /></div>
+
+                    <h4>4.500 TL</h4>
+                    <p>Lenovo Gaming İ5-512 GB 82K10ELTX</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section><!-- End Services Section -->

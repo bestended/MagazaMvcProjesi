@@ -1,0 +1,119 @@
+﻿@model MagazaMvcProjesi.Models.Dealer
+
+@{
+    ViewBag.Title = "Sil";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<div style="margin-left:150px;">
+    <h2>Dealer Delete Screen</h2>
+</div>
+<br />
+
+
+
+<div>
+
+    <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(i => i.dealerName)</dt>
+        <dd>>@Html.DisplayFor(i => i.dealerName)</dd>
+    </dl>
+
+    <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(i => i.dealerTelephone)</dt>
+        <dd>>@Html.DisplayFor(i => i.dealerTelephone)</dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(i => i.dealerMail)</dt>
+        <dd>>@Html.DisplayFor(i => i.dealerMail)</dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(i => i.dealerCountry)</dt>
+        <dd>>@Html.DisplayFor(i => i.dealerCountry)</dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(i => i.dealerCity)</dt>
+        <dd>>@Html.DisplayFor(i => i.dealerCity)</dd>
+    </dl>
+
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            @Html.ActionLink("Back to List", "Liste")
+        </div>
+
+    }
+</div>
+
+<section id="services" class="services">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>Bayilerimiz</h2>
+
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon-box">
+                    <div><img src="~/bayiImg/de1.png" /></div>
+
+                    <h4 style="margin-top:20px;">İstanbul Şubesi</h4>
+                    <p>Kadıköy Bayisi</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+                <div class="icon-box">
+                    <div style="width:300px; height:220px;"><img src="~/bayiImg/d3.png" style="width:260px; height:260px;" /></div>
+
+                    <h4 style="margin-top:60px;">Ankara Şubesi</h4>
+                    <p>Kızılay Bayisi</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
+                <div class="icon-box">
+                    <div style="width:360px; height:220px;"><img src="~/bayiImg/dec8.png" style="width:260px; height:260px;" /></div>
+
+                    <h4 style="margin-top:60px;">Eskişehir Şubesi</h4>
+                    <p>Odunpazarı Bayisi</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon-box">
+                    <div><img src="~/bayiImg/dec6.png" /></div>
+
+                    <h4 style="margin-top:20px;">Kocaeli Şubesi</h4>
+                    <p>İzmit Bayisi</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="200">
+                <div class="icon-box">
+                    <div style="width:300px; height:220px;"><img src="~/bayiImg/dec8.png" style="width:260px; height:260px;" /></div>
+
+                    <h4 style="margin-top:60px;">Bursa Şubesi</h4>
+                    <p style="margin-top:5px;">Karacabey Bayisi</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="300">
+                <div class="icon-box">
+                    <div style="width:360px; height:263px;"><img src="~/bayiImg/dec3.png" style="width:300px; height:260px;" /></div>
+
+                    <h4 style="margin-top:20px;">İzmir Şubesi</h4>
+                    <p>Bayraklı Bayisi</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section><!-- End Services Section -->
